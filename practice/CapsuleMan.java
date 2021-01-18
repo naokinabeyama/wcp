@@ -1,4 +1,4 @@
-package practise;
+package practice;
 
 public class CapsuleMan {
 	private String name;
