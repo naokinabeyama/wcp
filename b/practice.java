@@ -1,7 +1,7 @@
 package practice;
 
 import java.io.BufferedReader; // 1行ずつ読み込むためのクラス
-import java.io.IOException;	//null
+import java.io.IOException;	//入出力処理が失敗した場合
 import java.io.InputStreamReader; //日本語に
 
 public class practice {
@@ -66,13 +66,33 @@ public class practice {
 				// try文:例外処理を行う
 				try {
 					input[i] = Integer.parseInt(br.readLine()); //答えを入力
-				} catch (NumberFormatException e) { //文字列を数値型に変換しようとしたとき 
+				} catch (NumberFormatException e) { //文字列を数値型に変換しようとしたとき
 					System.err.println("数値を入力してください");
 					i--;
-				} catch (IOException e) { //nullだった場合
+				} catch (IOException e) { //入出力処理が失敗した場合
 					System.out.println("もう一度入力してください");
 					i--;
 				}
+			}
+			// 答え判断
+			hit = 0;
+			blow = 0;
+			for (int i = 0; i < answer.length; i++) {
+				for (int j = 0; j < answer.length; j++) {
+					if (i == j && input[i] == answer[j]) {
+						hit++; //入力した場所と数字が一緒ならhit
+					} else if (input[i] == answer[j]) {
+						blow++; //入力した数字が一緒ならblow
+					}
+				}
+			}
+			// 終了判断、ヒットが３つになったら終了
+			System.out.println("ヒット" + hit + "ブロー" + blow);
+			if (hit == 3) {
+				System.out.println("おめでとう");
+				break; //処理を止める
+			} else {
+				System.out.println(); //段落を空けている
 			}
 		}
 	}
