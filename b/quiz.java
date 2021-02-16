@@ -64,8 +64,8 @@ public class quiz {
 				System.out.println("*　数字以外は入力しないで下さい　*");
 			}
 
-			// 入力番号を受け取る
-			inputNum = tmpInputNum;
+			// 入力結果表示
+			System.out.println("入力された値は" + inputNum + "です。");
 
 			// 表示終了の区切り
 			System.out.println("");
