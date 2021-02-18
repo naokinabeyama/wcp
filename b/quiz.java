@@ -40,29 +40,7 @@ public class quiz {
 			  System.out.println("3:(a >= 4 && a <= 10) || a < 40");
 			  break;
 			}
-			System.out.println("答え＞");
-			// 問題を進める
-			nowQuizNum += 1;
-
-			// 最大数以上なら
-			if(nowQuizNum >= QUIZ_MAX) {
-				loopFlg = false; // ゲームを終了
-			}
-
-			// 入力処理
-			int tmpInputNum = 0;
-			try {
-				final int IMPUT_MAX = 3; //最大入力値
-				java.util.Scanner sc = new java.util.Scanner(System.in);
-				int inputInt = sc.nextInt();
-				if (inputInt > 0 && inputInt <= IMPUT_MAX) {
-					tmpInputNum = inputInt;
-				} else {
-					System.out.println("*　コマンドは" + IMPUT_MAX + "以下で入力してください　*");
-				}
-			} catch (Exception e) {
-				System.out.println("*　数字以外は入力しないで下さい　*");
-			}
+			System.out.print("答え＞");
 
 			// 入力結果表示
 			System.out.println("入力された値は" + inputNum + "です。");
@@ -71,7 +49,74 @@ public class quiz {
 			System.out.println("");
 			System.out.println("##############################");
 			System.out.println("");
+
+			// 解答をテェックする
+			switch(nowQuizNum) {
+				case 0:
+				  // 正解番号チェック
+				  if(inputNum == 3) {
+				  	System.out.println("正解！");
+				  	correctTotal += 1; //　正解数加算
+				  } else  {
+				  	System.out.println("不正解！");
+				  }
+				  break;
+
+				case 1:
+				  // 正解番号チェック
+				  if(inputNum == 1) {
+				  	System.out.println("正解！");
+				  	correctTotal += 1; //　正解数加算
+				  } else  {
+				  	System.out.println("不正解！");
+				  }
+				  break;
+
+				case 2:
+				  // 正解番号チェック
+				  if(inputNum == 3) {
+				  	System.out.println("正解！");
+				  	correctTotal += 1; //　正解数加算
+				  } else  {
+				  	System.out.println("不正解！");
+				  }
+				  break;
+			}
 		}
+
+		System.out.println("");
+		System.out.priintln("-------------------");
+		System.out.println("＜１を入力してEnterキーを押してください＞");
+
+		// 問題を進める
+		nowQuizNum += 1;
+
+		// 最大数以上なら
+		if(nowQuizNum >= QUIZ_MAX) {
+			loopFlg = false; // ゲームを終了
+		}
+
+		// 入力処理
+		int tmpInputNum = 0;
+		try {
+			final int IMPUT_MAX = 3; //最大入力値
+			java.util.Scanner sc = new java.util.Scanner(System.in);
+			int inputInt = sc.nextInt();
+			if (inputInt > 0 && inputInt <= IMPUT_MAX) {
+				tmpInputNum = inputInt;
+			} else {
+				System.out.println("*　コマンドは" + IMPUT_MAX + "以下で入力してください　*");
+			}
+		} catch (Exception e) {
+			System.out.println("*　数字以外は入力しないで下さい　*");
+		}
+
+		// 入力番号を受け取る
+		inputNum = tmplnputNum;
+
+		System.out.println("");
+		System.out.priintln("####################");
+		System.out.println("");
 
 		// 結果表示
 		System.out.println("********** クイズ **********");
